@@ -5,7 +5,6 @@ import { ChevronLeftIcon } from "@chakra-ui/icons";
 
 export default function Header() {
   const router = useRouter();
-  const isSlug = router.asPath;
 
   return (
     <Box w="100%">
