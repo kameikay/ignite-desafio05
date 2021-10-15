@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Image, Text, Box, Flex } from "@chakra-ui/react";
 
@@ -56,26 +58,29 @@ export default function SwiperComponent() {
       >
         {swiperMocks.map((swiper, key) => (
           <SwiperSlide key={key}>
-            <Flex
-              background={`url(${swiper.url}) no-repeat center center rgba(0, 0,0,0.35)`}
-              w={1240}
-              h={450}
-              align="center"
-              justify="center"
-              direction="column"
-              backgroundBlendMode="multiply"
-            >
-              <Text
-                color="light.headingsAndText"
-                fontSize={46}
-                fontWeight="700"
+            <Link href={`/${swiper.continent.toLowerCase()}`} passHref>
+              <Flex
+                as="a"
+                background={`url(${swiper.url}) no-repeat center center rgba(0, 0,0,0.35)`}
+                w={1240}
+                h={450}
+                align="center"
+                justify="center"
+                direction="column"
+                backgroundBlendMode="multiply"
               >
-                {swiper.continent}
-              </Text>
-              <Text color="light.info" fontSize={24} fontWeight="700">
-                {swiper.subtitle}
-              </Text>
-            </Flex>
+                <Text
+                  color="light.headingsAndText"
+                  fontSize={46}
+                  fontWeight="700"
+                >
+                  {swiper.continent}
+                </Text>
+                <Text color="light.info" fontSize={24} fontWeight="700">
+                  {swiper.subtitle}
+                </Text>
+              </Flex>
+            </Link>
           </SwiperSlide>
         ))}
       </Swiper>
