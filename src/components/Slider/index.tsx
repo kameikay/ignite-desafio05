@@ -1,7 +1,11 @@
-import { Box, Flex, Text, Image } from "@chakra-ui/react";
+import { Box, Flex, Text } from "@chakra-ui/react";
 import SwiperComponent from "./SwiperComponent";
 
 export default function Slider() {
+  function handleContinent(continent) {
+    console.log(continent.toLowerCase())
+  }
+
   return (
     <Flex direction="column" align="center" mb="40px">
       <Box
@@ -24,7 +28,7 @@ export default function Slider() {
       </Box>
 
       <Box maxWidth={1240} w="100%" mt="3.25rem">
-        <SwiperComponent />
+        <SwiperComponent onSelectContinent={handleContinent} />
       </Box>
     </Flex>
   );

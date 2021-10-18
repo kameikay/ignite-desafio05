@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Image, Text, Box, Flex } from "@chakra-ui/react";
+import { Text, Flex } from "@chakra-ui/react";
 
 // Import Swiper styles
 import "swiper/css";
@@ -45,7 +45,7 @@ const swiperMocks = [
   },
 ];
 
-export default function SwiperComponent() {
+export default function SwiperComponent({ onSelectContinent }) {
   return (
     <>
       <Swiper
@@ -57,8 +57,14 @@ export default function SwiperComponent() {
         height={450}
       >
         {swiperMocks.map((swiper, key) => (
-          <SwiperSlide key={key}>
-            <Link href={`/${swiper.continent.toLowerCase()}`} passHref>
+          <SwiperSlide
+            key={key}
+            onClick={() => onSelectContinent(swiper.continent)}
+          >
+            <Link
+              href={`/continents/${swiper.continent.toLowerCase()}`}
+              passHref
+            >
               <Flex
                 as="a"
                 background={`url(${swiper.url}) no-repeat center center rgba(0, 0,0,0.35)`}
