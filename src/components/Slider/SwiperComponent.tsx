@@ -21,31 +21,36 @@ const swiperMocks = [
   {
     url: "/europe.jpg",
     continent: "Europa",
+    slug: "europa",
     subtitle: "O continente mais clássico.",
   },
   {
     url: "/asia.jpg",
     continent: "Ásia",
+    slug: "asia",
     subtitle: "O continente mais tradicional.",
   },
   {
     url: "/africa.jpg",
     continent: "África",
+    slug: "africa",
     subtitle: "O continente mais antigo.",
   },
   {
     url: "/america.jpg",
     continent: "América",
+    slug: "america",
     subtitle: "O continente mais capitalista.",
   },
   {
     url: "/oceania.jpg",
     continent: "Oceania",
+    slug: "oceania",
     subtitle: "O continente mais isolado.",
   },
 ];
 
-export default function SwiperComponent({ onSelectContinent }) {
+export default function SwiperComponent() {
   return (
     <>
       <Swiper
@@ -59,10 +64,9 @@ export default function SwiperComponent({ onSelectContinent }) {
         {swiperMocks.map((swiper, key) => (
           <SwiperSlide
             key={key}
-            onClick={() => onSelectContinent(swiper.continent)}
           >
             <Link
-              href={`/continents/${swiper.continent.toLowerCase()}`}
+              href={`/continents/${swiper.slug}`}
               passHref
             >
               <Flex

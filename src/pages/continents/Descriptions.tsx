@@ -13,22 +13,19 @@ import {
 } from "@chakra-ui/react";
 import { ImInfo } from "react-icons/im";
 
-export function Descriptions() {
+export function Descriptions({ selectedContinent }) {
   return (
     <Flex align="center" my="80px" px="140px" justify="space-between" w="100%" maxWidth={1440}>
       <Box flex="1">
         <Text textAlign="justify" fontSize="24px">
-          A Europa é, por convenção, um dos seis continentes do mundo.
-          Compreendendo a península ocidental da Eurásia, a Europa geralmente
-          divide-se da Ásia a leste pela divisória de águas dos montes Urais, o
-          rio Ural, o mar Cáspio, o Cáucaso, e o mar Negro a sudeste
+          {selectedContinent.body.description}
         </Text>
       </Box>
 
       <Flex w={490} align="center" justify="space-between" ml="70px">
         <Flex direction="column" align="center">
           <Text color="yellow.highlight" fontSize="5xl" fontWeight="500">
-            50
+            {selectedContinent.body.contriesNumber}
           </Text>
           <Text color="dark.headingsAndText" fontWeight="500" fontSize="2xl">
             países
@@ -36,7 +33,7 @@ export function Descriptions() {
         </Flex>
         <Flex direction="column" align="center">
           <Text color="yellow.highlight" fontSize="5xl" fontWeight="500">
-            60
+            {selectedContinent.body.languagesNumber}
           </Text>
           <Text color="dark.headingsAndText" fontWeight="500" fontSize="2xl">
             línguas
@@ -44,7 +41,7 @@ export function Descriptions() {
         </Flex>
         <Flex direction="column" align="center">
           <Text color="yellow.highlight" fontSize="5xl" fontWeight="500">
-            27
+            {selectedContinent.body.citiesNumber}
           </Text>
           <Flex
             color="dark.headingsAndText"

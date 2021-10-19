@@ -1,6 +1,7 @@
 import { Flex, Text } from '@chakra-ui/react'
 
-export function Hero() {
+export function Hero({ selectedContinent }) {
+
   return (
     <Flex
       w="100%"
@@ -11,7 +12,7 @@ export function Hero() {
       p="0 0 3.75rem 8.75rem"
     >
       <Text fontSize="5xl" color="light.white" fontWeight="500">
-        Europa
+        {selectedContinent.continent}
       </Text>
     </Flex>
   );
